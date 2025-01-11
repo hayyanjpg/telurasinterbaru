@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Market - Indri Telur Asin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet"/>
+</head>
+<body class="bg-gray-50 font-roboto">
+
+    <!-- Navbar -->
+    <nav class="bg-yellow-300 p-4 flex justify-between items-center">
+        <a href="{{ url_for('logout') }}" class="bg-white text-yellow-500 py-2 px-4 rounded-lg hover:bg-gray-200 transition">Logout</a>
+    </nav>
+
+    <!-- Market Section -->
+    <section class="bg-gray-50 py-12" id="market">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Pasar Indri Telur Asin</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Produk 1 -->
+                <div class="bg-white p-6 shadow-lg rounded-lg product-card">
+                    <img src="{{ url_for('static', filename='images/telurrebus1.jpeg') }}" alt="Telur Asin Original" class="w-full h-48 object-cover rounded-lg">
+                    <h3 class="font-semibold text-lg mb-2">Telur Asin Original</h3>
+                    <p>Rasa klasik dengan tekstur lembut dan asin yang pas.</p>
+                    <p class="text-yellow-500 font-bold mt-2">Rp 3.500</p>
+                    <a href="#" 
+                       class="beli-whatsapp bg-yellow-500 text-white py-2 px-4 rounded-lg mt-4 inline-block hover:bg-yellow-600 transition button-animation"
+                       data-produk="Telur Asin Original">
+                        Beli di WhatsApp
+                    </a>
+                </div>
+                
+                <!-- Produk 2 -->
+                <div class="bg-white p-6 shadow-lg rounded-lg product-card">
+                    <img src="{{ url_for('static', filename='images/telurbakar.jpg') }}" alt="Telur Bakar" class="w-full h-48 object-cover rounded-lg">
+                    <h3 class="font-semibold text-lg mb-2">Telur Asin Bakar</h3>
+                    <p>Telur asin dengan aroma smoky yang menggugah selera.</p>
+                    <p class="text-yellow-500 font-bold mt-2">Rp 4.000</p>
+                    <a href="#" 
+                       class="beli-whatsapp bg-yellow-500 text-white py-2 px-4 rounded-lg mt-4 inline-block hover:bg-yellow-600 transition button-animation"
+                       data-produk="Telur Asin Bakar">
+                        Beli di WhatsApp
+                    </a>
+                </div>
+                
+                <!-- Produk 3 -->
+                <div class="bg-white p-6 shadow-lg rounded-lg product-card">
+                    <img src="{{ url_for('static', filename='images/telurpindang.jpg') }}" alt="Telur Asin Pindang" class="w-full h-48 object-cover rounded-lg">
+                    <h3 class="font-semibold text-lg mb-2">Telur Asin Pindang</h3>
+                    <p>Telur asin pindang dengan rasa yang gurih gurih nyoi.</p>
+                    <p class="text-yellow-500 font-bold mt-2">Rp 4.000</p>
+                    <a href="#" 
+                       class="beli-whatsapp bg-yellow-500 text-white py-2 px-4 rounded-lg mt-4 inline-block hover:bg-yellow-600 transition button-animation"
+                       data-produk="Telur Asin Pindang">
+                        Beli di WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </ ```html
+    </div>
+    </section>
+
+    <!-- Script untuk menghubungi WhatsApp -->
+    <script>
+        // Ambil semua elemen dengan kelas 'beli-whatsapp'
+        const beliButtons = document.querySelectorAll('.beli-whatsapp');
+
+        // Tambahkan event listener untuk setiap tombol
+        beliButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Mencegah aksi default link
+                const produkNama = this.getAttribute('data-produk'); // Ambil nama produk
+                const teks = 'Halo, saya ingin membeli ' + produkNama; // Teks yang akan dikirim
+                const urlWhatsapp = 'https://wa.me/6289629892817?text=' + encodeURIComponent(teks); // URL WhatsApp
+                window.location.href = urlWhatsapp; // Arahkan ke URL WhatsApp
+            });
+        });
+    </script>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6289529892817" target="_blank" 
+  class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition">
+   <i class="fab fa-whatsapp text-2xl"></i>
+</a>
+
+</body>
+</html>
